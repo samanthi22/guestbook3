@@ -2,11 +2,4 @@
 
 <%= render 'form', person: @person %>
 
-<fieldset>
-    <legend>Country</legend>
-    <%= f.radio_button :country, "USA" %><%= f.label "person_country_usa", "USA" %><br>
-     <%= f.radio_button :country, "Canada" %><%= f.label "person_country_canada", "Canada" %><br>
-      <%= f.radio_button :country, "Mexico" %><%= f.label "person_country_mexico", "Mexico" %><br>
-</fieldset>
-
 <%= link_to 'Back', people_path %>
