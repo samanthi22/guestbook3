@@ -1,5 +1,5 @@
 
-<%= form_for(@person, html: { multipart: true }, builder: TidyFormBuilder) do |form| %>
+<%= form_for(@person, html: { multipart: true }, builder: WrappingTidyFormBuilder) do |form| %>
   <% if person.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</h2>
@@ -11,26 +11,58 @@
       </ul>
     </div>
   <% end %>
+<p>
+<%= form.label :name %>
+ <%= form.text_field :name, required: true %>
+</p>
+<p>
+<%= form.label :secret %>
+  <%= form.text_field :secret,  required: true %>
+  </p>
+<p>
+<%= form.label :country %>
+  <%= form.select :country,  required: true %>
+</p>
 
- <%= form.text_field :name, required: true%>
-
-  <%= form.text_field :secret, required: true%>
-
-  <%= form.country_select :country, required: true %>
-
+<p>
+<%= form.label :email %>
  <%= form.text_field :email %>
+ </p>
 
+<p>
+<%= form.label :description %>
   <%= form.text_field :description %>
+  </p>
 
+<p>
+<%= form.label :can_send_email %>
   <%= form.check_box :can_send_email %>
+  </p>
 
+<p>
+<%= form.label :graduation_year %>
   <%= form.text_field :graduation_year %>
-
+  </p>
+<p>
+<%= form.label :boyd_temperature %>
  <%= form.text_field :boyd_temperature %>
+ </p>
+ <p>
+<%= form.label :price %>
  <%= form.text_field :price %>
+ </p>
+ <p>
+<%= form.label :birthday %>
  <%= form.text_field :birthday %>
+ </p>
+ <p>
+<%= form.label :favorite_time %>
  <%= form.time_select :favorite_time %>
+ </p>
+ <p>
+<%= form.label :photo %>
    <%= form.file_field :photo %>
+   </p>
 
   <div class="actions">
     <%= form.submit %>
