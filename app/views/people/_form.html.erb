@@ -1,5 +1,5 @@
 
-<%= form_for(@person, html: { multipart: true }, buider: TidyFormBuilder) do |form| %>
+<%= form_for(@person, html: { multipart: true }, builder: WrappingTidyFormBuilder) do |form| %>
   <% if person.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</h2>
@@ -11,16 +11,15 @@
       </ul>
     </div>
   <% end %>
-<p>
-<%= form.label :name %>
+
+
  <%= form.text_field :name, required: true %>
-</p>
+
 <p>
 <%= form.label :secret %>
   <%= form.text_field :secret,  required: true %>
   </p>
 <p>
-<%= form.label :country %>
   <%= form.country_select :country,  required: true %>
 </p>
 
@@ -34,10 +33,9 @@
   <%= form.text_field :description %>
   </p>
 
-<p>
-<%= form.label :can_send_email %>
+
   <%= form.check_box :can_send_email %>
-  </p>
+
 
 <p>
 <%= form.label :graduation_year %>
@@ -55,10 +53,10 @@
 <%= form.label :birthday %>
  <%= form.text_field :birthday %>
  </p>
- <p>
-<%= form.label :favorite_time %>
+ 
+ 
  <%= form.time_select :favorite_time %>
- </p>
+
  <p>
 <%= form.label :photo %>
    <%= form.file_field :photo %>
