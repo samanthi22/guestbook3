@@ -1,4 +1,5 @@
-<%= form_with(model: person, local: true) do |form| %>
+# form_with(model: person, local: true) do |form|
+<%= form_for(@person, html: { multipart: true }) do |f| %>
   <% if person.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</h2>
@@ -64,6 +65,11 @@
   <div class="field">
     <%= form.label :favorite_time %>
     <%= form.time_select :favorite_time %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :photo %><br />
+    <%= f.file_field :photo %>
   </div>
 
   <div class="actions">
