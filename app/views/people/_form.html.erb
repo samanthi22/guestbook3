@@ -1,5 +1,5 @@
-# form_with(model: person, local: true) do |form|
-<%= form_for(@person, html: { multipart: true }) do |f| %>
+
+<%= form_for(@person, html: { multipart: true }, builder: TidyFormBuilder) do |form| %>
   <% if person.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</h2>
@@ -12,65 +12,25 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+ <%= form.text_field :name, required: true%>
 
-  <div class="field">
-    <%= form.label :secret %>
-    <%= form.text_field :secret %>
-  </div>
+  <%= form.text_field :secret, required: true%>
 
-  <div class="field">
-    <%= form.label :country %>
-    <%= form.text_field :country %>
-  </div>
+  <%= form.country_select :country, required: true %>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
+ <%= form.text_field :email %>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+  <%= form.text_field :description %>
 
-  <div class="field">
-    <%= form.label :can_send_email %>
-    <%= form.check_box :can_send_email %>
-  </div>
+  <%= form.check_box :can_send_email %>
 
-  <div class="field">
-    <%= form.label :graduation_year %>
-    <%= form.number_field :graduation_year %>
-  </div>
+  <%= form.text_field :graduation_year %>
 
-  <div class="field">
-    <%= form.label :boyd_temperature %>
-    <%= form.text_field :boyd_temperature %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
-  </div>
-
-  <div class="field">
-    <%= form.label :birthday %>
-    <%= form.date_select :birthday %>
-  </div>
-
-  <div class="field">
-    <%= form.label :favorite_time %>
-    <%= form.time_select :favorite_time %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :photo %><br />
-    <%= f.file_field :photo %>
-  </div>
+ <%= form.text_field :boyd_temperature %>
+ <%= form.text_field :price %>
+ <%= form.text_field :birthday %>
+ <%= form.time_select :favorite_time %>
+   <%= form.file_field :photo %>
 
   <div class="actions">
     <%= form.submit %>
