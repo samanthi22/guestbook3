@@ -1,5 +1,5 @@
 
-<%= form_for(@person, html: { multipart: true }, builder: WrappingTidyFormBuilder) do |form| %>
+<%= form_for(@person, html: { multipart: true }, buider: TidyFormBuilder) do |form| %>
   <% if person.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</h2>
@@ -21,7 +21,7 @@
   </p>
 <p>
 <%= form.label :country %>
-  <%= form.select :country,  required: true %>
+  <%= form.country_select :country,  required: true %>
 </p>
 
 <p>
